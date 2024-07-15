@@ -1,4 +1,4 @@
-# Project Name
+# CVProject
 
 A simplified website inspired by Booking.com, allowing users to search for offers based on filters, browse them, and add to favorites. The project is fully written in TypeScript and React, with state management handled by Redux. It features a login functionality, dark mode, and form validation using Zod. The backend is mocked and stored in local storage using axios-mock-adapter.
 
