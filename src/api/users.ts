@@ -1,16 +1,22 @@
-import { getDatabaseTable } from './helpers';
+import { getDatabaseTable } from "./helpers";
 
-export const getUser = (data) => {
+interface User {
+  id: string;
+  email: string;
+  password: string;
+}
+
+export const getUser = (data: User) => {
   const { email, password } = data;
 
-  const users = getDatabaseTable('users');
+  const users: User[] = getDatabaseTable("users");
   if (!users) {
-    console.log('No users table found');
+    console.log("No users table found");
     return;
   }
 
   const user = users.find(
-    (user) => user.email === email && user.password === password,
+    user => user.email === email && user.password === password
   );
 
   return user;

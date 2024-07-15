@@ -1,18 +1,20 @@
-import axios from 'axios';
-import MockAdapter from 'axios-mock-adapter';
-import Cookies from 'js-cookie';
+// @ts-nocheck
+import axios from "axios";
+import type { InternalAxiosRequestConfig } from "axios";
+import MockAdapter from "axios-mock-adapter";
+import Cookies from "js-cookie";
 
-import { env } from '@/lib/env';
+import { env } from "@/lib/env";
 
 import {
   generateAccessToken,
   generateRefreshToken,
   verifyToken,
   withAuth,
-} from './helpers';
-import { getListingById, getListings } from './listings';
-import { getLocationById } from './locations';
-import { getUser } from './users';
+} from "./helpers";
+import { getListingById, getListings } from "./listings";
+import { getLocationById } from "./locations";
+import { getUser } from "./users";
 
 // Creates a base axios instance
 const api = axios.create({
@@ -24,46 +26,48 @@ const adapter = new MockAdapter(api, { delayResponse: 1000 });
 
 // Gets a single listing
 adapter.onGet(/\/api\/listings\/\d+/).reply(
-  withAuth(async (config) => {
-    const id = parseInt(config.url.match(/\/api\/listings\/(\d+)/)[1]);
+  withAuth(async config => {
+    const id = parseInt(
+      config.url?.match?.(/\/api\/listings\/(\d+)/)?.[1] || ""
+    );
 
     // Gets listing by id
     const listing = getListingById(id);
     if (!listing) {
-      return [404, { message: 'Listing not found' }];
+      return [404, { message: "Listing not found" }];
     }
 
     const location = getLocationById(listing.locationId);
     if (!location) {
-      return [404, { message: 'Location not found' }];
+      return [404, { message: "Location not found" }];
     }
 
     return [200, { ...listing, location }];
-  }),
+  })
 );
 
 // Gets all listings
-adapter.onGet('/api/listings').reply(
-  withAuth(async (config) => {
+adapter.onGet("/api/listings").reply(
+  withAuth(async (config: InternalAxiosRequestConfig) => {
     const { params } = config;
 
     // Gets all listings with optional filters
     const listings = getListings(params);
 
     // Maps over listings and adds location
-    const domainListings = listings.map((listing) => {
+    const domainListings = listings?.map(listing => {
       const location = getLocationById(listing.locationId);
       return { ...listing, location };
     });
 
     return [200, domainListings];
-  }),
+  })
 );
 
 // Gets the current user
-adapter.onGet('/api/me').reply(
-  withAuth(async (config) => {
-    const accessToken = config.headers.Authorization?.split(' ')[1];
+adapter.onGet("/api/me").reply(
+  withAuth(async config => {
+    const accessToken = config?.headers?.Authorization?.split(" ")[1];
 
     // Verifies access token and returns payload
     const accessTokenPayload = await verifyToken(accessToken, {
@@ -71,7 +75,7 @@ adapter.onGet('/api/me').reply(
     });
 
     if (!accessTokenPayload) {
-      return [403, { message: 'Unauthorized' }];
+      return [403, { message: "Unauthorized" }];
     }
 
     // Verifies refresh token and returns payload
@@ -80,7 +84,7 @@ adapter.onGet('/api/me').reply(
     });
 
     if (!refreshTokenPayload) {
-      return [403, { message: 'Unauthorized' }];
+      return [403, { message: "Unauthorized" }];
     }
 
     // Returns access token and user
@@ -90,11 +94,11 @@ adapter.onGet('/api/me').reply(
         accessToken: env.USE_AUTH ? accessToken : null,
       },
     ];
-  }),
+  })
 );
 
 // Signs the user in
-adapter.onPost('/api/signin').reply(async (config) => {
+adapter.onPost("/api/signin").reply(async config => {
   const { data } = config;
   const user = getUser(JSON.parse(data));
 
@@ -104,7 +108,7 @@ adapter.onPost('/api/signin').reply(async (config) => {
 
     // Since there is no backend, token is stored in a normal cookie
     // Otherwise it would be stored in a secure HTTP-only cookie for security
-    Cookies.set('refreshToken', refreshToken);
+    Cookies.set("refreshToken", refreshToken);
 
     // Creates an access token based on the refresh token
     const accessToken = await generateAccessToken(refreshToken);
@@ -117,14 +121,14 @@ adapter.onPost('/api/signin').reply(async (config) => {
       },
     ];
   } else {
-    return [401, { message: 'Invalid credentials' }];
+    return [401, { message: "Invalid credentials" }];
   }
 });
 
 // Refreshes the user's access token
-adapter.onGet('/api/refreshToken').reply(async () => {
+adapter.onGet("/api/refreshToken").reply(async () => {
   // Gets refresh token from cookie
-  const refreshToken = Cookies.get('refreshToken');
+  const refreshToken = Cookies.get("refreshToken");
 
   // Verifies refresh token and returns payload
   const refreshTokenPayload = refreshToken
@@ -132,7 +136,7 @@ adapter.onGet('/api/refreshToken').reply(async () => {
     : false;
 
   if (env.USE_AUTH && !refreshTokenPayload) {
-    return [403, { message: 'Invalid refresh token' }];
+    return [403, { message: "Invalid refresh token" }];
   }
 
   // Generates a new access token based on refresh token
@@ -142,13 +146,13 @@ adapter.onGet('/api/refreshToken').reply(async () => {
 });
 
 // Signs the user out
-adapter.onPost('/api/signout').reply(
+adapter.onPost("/api/signout").reply(
   withAuth(() => {
     // Removes refresh token from cookies
-    Cookies.remove('refreshToken');
+    Cookies.remove("refreshToken");
 
     return [200];
-  }),
+  })
 );
 
 export default api;

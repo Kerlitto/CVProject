@@ -1,30 +1,109 @@
-# React + TypeScript + Vite
+# Project Name
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simplified website inspired by Booking.com, allowing users to search for offers based on filters, browse them, and add to favorites. The project is fully written in TypeScript and React, with state management handled by Redux. It features a login functionality, dark mode, and form validation using Zod. The backend is mocked and stored in local storage using axios-mock-adapter.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Search Offers**: Filter offers based on various criteria.
+- **Browse Offers**: View detailed information about offers.
+- **Add to Favorites**: Save favorite offers for quick access.
+- **Login Functionality**: Secure login using specific credentials.
+- **Dark Mode**: Switch between light and dark themes.
+- **Form Validation**: Validate forms using Zod library.
+- **Mocked Backend**: Use axios-mock-adapter to mock API responses and store data in local storage.
 
-## Expanding the ESLint configuration
+## Demo Credentials
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Email**: test@demo.com
+- **Password**: cvproject
 
-- Configure the top-level `parserOptions` property like this:
+## Technologies and Libraries Used
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+### Core Technologies
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- **React**: The entire front-end is built using React, leveraging its component-based architecture to create a dynamic and responsive user interface. React's virtual DOM enhances performance and provides a seamless user experience.
+- **TypeScript**: TypeScript is used throughout the project to provide type safety and enhance code quality. TypeScript's static typing helps catch errors early in the development process and makes the codebase more maintainable and scalable.
+
+- **Redux**: State management is handled by Redux, ensuring that the application's state is managed predictably and efficiently. Redux Toolkit is used to simplify the setup and management of Redux, providing powerful tools like slices and the `createAsyncThunk` function for handling asynchronous actions.
+
+### Dependencies
+
+- `@emotion/react`: ^11.11.4
+- `@emotion/styled`: ^11.11.5
+- `@hookform/resolvers`: ^3.6.0
+- `@mui/material`: ^5.15.20
+- `@radix-ui/react-dropdown-menu`: ^2.0.6
+- `@radix-ui/react-label`: ^2.0.2
+- `@radix-ui/react-popover`: ^1.1.1
+- `@radix-ui/react-separator`: ^1.0.3
+- `@radix-ui/react-slot`: ^1.0.2
+- `@reduxjs/toolkit`: ^2.2.5
+- `axios`: ^1.7.2
+- `axios-mock-adapter`: ^1.22.0
+- `class-variance-authority`: ^0.7.0
+- `clsx`: ^2.1.1
+- `date-fns`: ^3.6.0
+- `embla-carousel-react`: ^8.1.5
+- `jose`: ^5.5.0
+- `js-cookie`: ^3.0.5
+- `lucide-react`: ^0.379.0
+- `react`: ^18.2.0
+- `react-day-picker`: ^8.10.1
+- `react-dom`: ^18.2.0
+- `react-hook-form`: ^7.52.0
+- `react-redux`: ^9.1.2
+- `react-router-dom`: ^6.23.1
+- `tailwind-merge`: ^2.3.0
+- `tailwindcss-animate`: ^1.0.7
+- `zod`: ^3.23.8
+
+### DevDependencies
+
+- `@types/js-cookie`: ^3.0.6
+- `@types/node`: ^20.12.12
+- `@types/react`: ^18.2.66
+- `@types/react-dom`: ^18.2.22
+- `@typescript-eslint/eslint-plugin`: ^7.2.0
+- `@typescript-eslint/parser`: ^7.2.0
+- `@vitejs/plugin-react`: ^4.2.1
+- `autoprefixer`: ^10.4.19
+- `eslint`: ^8.57.0
+- `eslint-plugin-react-hooks`: ^4.6.0
+- `eslint-plugin-react-refresh`: ^0.4.6
+- `postcss`: ^8.4.38
+- `tailwindcss`: ^3.4.3
+- `typescript`: ^5.2.2
+- `vite`: ^5.2.0
+
+## Setup and Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/Kerlitto/CVProject.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd CVProject
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Run the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+5. Open your browser and visit `http://localhost:3000` to see the application in action.
+
+## Contact
+
+Maciej Kozak  
+Email: maciej_kozak@wp.pl

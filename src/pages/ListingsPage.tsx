@@ -1,18 +1,31 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
+import DataRenderer from "@/components/DataRenderer";
 import ListingFilters from "@/components/ListingFilters";
 import ListingList from "@/components/ListingList";
-import { Separator, Spinner } from "@/components/ui";
-import useFetch from "@/hooks/useFetch";
-import DataRenderer from "@/components/DataRenderer";
-import { useDispatch, useSelector } from "react-redux";
+import { Separator } from "@/components/ui";
 import { fetchListings } from "@/state/listings/listingsSlice";
+import { type AppDispatch, type IRootState } from "@/state/store";
 
-const ListingsPage = () => {
-  const { listings, error, status } = useSelector(state => state.listings);
-  const dispatch = useDispatch();
+interface DateRange {
+  from?: Date;
+  to?: Date;
+}
 
-  const [filters, setFilters] = useState({
+export interface Filters {
+  dates?: DateRange;
+  guests: number;
+  search: string;
+}
+
+const HomePage = () => {
+  const { listings, error, status } = useSelector(
+    (state: IRootState) => state.listings
+  );
+  const dispatch = useDispatch<AppDispatch>();
+
+  const [filters, setFilters] = useState<Filters>({
     dates: undefined,
     guests: 0,
     search: "",
@@ -22,12 +35,13 @@ const ListingsPage = () => {
 
   useEffect(() => {
     const request = dispatch(fetchListings(fetchOptions));
+
     return () => {
       request.abort();
     };
   }, [dispatch, fetchOptions]);
 
-  const handleFilters = useCallback(filters => {
+  const handleFilters = useCallback((filters: Filters) => {
     setFilters(filters);
   }, []);
 
@@ -44,4 +58,4 @@ const ListingsPage = () => {
   );
 };
 
-export default ListingsPage;
+export default HomePage;

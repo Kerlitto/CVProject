@@ -1,9 +1,16 @@
-import { env } from '@/lib/env';
-import { getItem, setItem } from '@/lib/utils/localStorage';
+import { env } from "@/lib/env";
+import { getItem, setItem } from "@/lib/utils/localStorage";
 
-import { listings } from './listings';
-import { locations } from './locations';
-import { users } from './users';
+import { type Listing, listings } from "./listings";
+import { type Location, locations } from "./locations";
+import { type User, users } from "./users";
+
+export interface InitialDatabase {
+  listings: Listing[];
+  locations: Location[];
+  users: User[];
+  lastFetched?: number;
+}
 
 // Add all data to localstorage to simulate database
 export const seedLocalDatabase = () => {
@@ -15,7 +22,7 @@ export const seedLocalDatabase = () => {
   }
 
   // Creates the initial database with all data
-  const initialDatabase = {
+  const initialDatabase: InitialDatabase = {
     listings,
     locations,
     users,

@@ -1,25 +1,31 @@
-import { isListingAvailable } from './data/listings.ts';
-import { getDatabaseTable } from './helpers';
+import { DateRange } from "react-day-picker";
+import { type Listing, isListingAvailable } from "./data/listings.ts";
+import { getDatabaseTable } from "./helpers";
 
+interface GetListingsParams {
+  dates: DateRange;
+  guests: number;
+  search: string;
+}
 // Gets listing by id
-export const getListingById = (id) => {
-  const listings = getDatabaseTable('listings');
+export const getListingById = (id: number) => {
+  const listings: Listing[] = getDatabaseTable("listings");
   if (!listings) {
-    console.log('No listings table found');
+    console.log("No listings table found");
     return;
   }
 
-  return listings.find((listing) => listing.id === id);
+  return listings.find(listing => listing.id === id);
 };
 
 // Gets listings using optional date range and search parameters
-export const getListings = (params = {}) => {
+export const getListings = (params: Partial<GetListingsParams> = {}) => {
   const { dates, guests, search } = params;
 
   // Gets the listings table
-  const listings = getDatabaseTable('listings');
+  const listings: Listing[] = getDatabaseTable("listings");
   if (!listings) {
-    console.log('No listings table found');
+    console.log("No listings table found");
     return;
   }
 
@@ -28,22 +34,22 @@ export const getListings = (params = {}) => {
 
   // Handles date range
   if (dates) {
-    filteredListings = filteredListings.filter((listing) =>
-      isListingAvailable(listing, dates),
+    filteredListings = filteredListings.filter(listing =>
+      isListingAvailable(listing, dates)
     );
   }
 
   // Handles guests
   if (guests) {
     filteredListings = filteredListings.filter(
-      (listing) => guests <= listing.maxGuests,
+      listing => guests <= listing.maxGuests
     );
   }
 
   // Handles search
   if (search) {
-    filteredListings = filteredListings.filter((listing) =>
-      listing.name.toLowerCase().includes(search.toLowerCase()),
+    filteredListings = filteredListings.filter(listing =>
+      listing.name.toLowerCase().includes(search.toLowerCase())
     );
   }
 

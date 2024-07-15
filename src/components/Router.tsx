@@ -4,6 +4,9 @@ import NotFoundPage from "@/pages/NotFoundPage";
 import SignInPage from "@/pages/SignInPage";
 import WelcomePage from "@/pages/WelcomePage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Route from "./Route";
+import ListingDetailsPage from "@/pages/ListingDetailsPage";
+import ListingFavoritesPage from "@/pages/ListingFavoritesPage";
 
 const router = createBrowserRouter([
   {
@@ -13,15 +16,43 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/signin",
-        element: <SignInPage />,
+        element: (
+          <Route>
+            <SignInPage />
+          </Route>
+        ),
       },
       {
         path: "/",
-        element: <WelcomePage />,
+        element: (
+          <Route isProtected>
+            <WelcomePage />
+          </Route>
+        ),
       },
       {
         path: "/listings",
-        element: <ListingsPage />,
+        element: (
+          <Route isProtected>
+            <ListingsPage />
+          </Route>
+        ),
+      },
+      {
+        path: "/favorites",
+        element: (
+          <Route isProtected>
+            <ListingFavoritesPage />
+          </Route>
+        ),
+      },
+      {
+        path: "/listings/:listingId",
+        element: (
+          <Route isProtected>
+            <ListingDetailsPage />
+          </Route>
+        ),
       },
     ],
   },
