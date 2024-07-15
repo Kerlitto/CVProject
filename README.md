@@ -6,12 +6,12 @@ A simplified website inspired by Booking.com, allowing users to search for offer
 
 - **Search Offers**: Filter offers based on various criteria.
   
-- ![Search Offers](./search.gif)
+ ![Search Offers](./search.gif)
   
 - **Browse Offers**: View detailed information about offers.
 - **Add to Favorites**: Save favorite offers for quick access.
   
-- ![Favorite](./favorite.gif)
+  ![Favorite](./favorite.gif)
   
 - **Login Functionality**: Secure login using specific credentials.
 - **Dark Mode**: Switch between light and dark themes.
