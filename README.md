@@ -12,10 +12,43 @@ A simplified website inspired by Booking.com, allowing users to search for offer
 - **Form Validation**: Validate forms using Zod library.
 - **Mocked Backend**: Use axios-mock-adapter to mock API responses and store data in local storage.
 
+## Setup and Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/Kerlitto/CVProject.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd CVProject
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Run the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+5. Open your browser and visit `http://localhost:3000` to see the application in action.
+
 ## Demo Credentials
 
 - **Email**: test@demo.com
 - **Password**: cvproject
+
+## Contact
+
+Maciej Kozak  
+Email: maciej_kozak@wp.pl
 
 ## Technologies and Libraries Used
 
@@ -74,36 +107,3 @@ A simplified website inspired by Booking.com, allowing users to search for offer
 - `tailwindcss`: ^3.4.3
 - `typescript`: ^5.2.2
 - `vite`: ^5.2.0
-
-## Setup and Installation
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/Kerlitto/CVProject.git
-   ```
-
-2. Navigate to the project directory:
-
-   ```bash
-   cd CVProject
-   ```
-
-3. Install dependencies:
-
-   ```bash
-   npm install
-   ```
-
-4. Run the development server:
-
-   ```bash
-   npm run dev
-   ```
-
-5. Open your browser and visit `http://localhost:3000` to see the application in action.
-
-## Contact
-
-Maciej Kozak  
-Email: maciej_kozak@wp.pl
