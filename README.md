@@ -9,6 +9,9 @@ A simplified website inspired by Booking.com, allowing users to search for offer
  ![Search Offers](./search.gif)
   
 - **Browse Offers**: View detailed information about offers.
+
+ ![Browse Offers](./browsesmall.jpg)
+  
 - **Add to Favorites**: Save favorite offers for quick access.
   
   ![Favorite](./favorite.gif)
