@@ -25,6 +25,9 @@ A simplified website inspired by Booking.com, allowing users to search for offer
  ![Dark Mode](./darkmode.gif)
 
 - **Form Validation**: Validate forms using Zod library.
+
+ ![Form Validation](./zod.gif)
+
 - **Mocked Backend**: Use axios-mock-adapter to mock API responses and store data in local storage.
 
 ## Setup and Installation
