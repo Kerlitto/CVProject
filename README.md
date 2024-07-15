@@ -14,6 +14,9 @@ A simplified website inspired by Booking.com, allowing users to search for offer
   ![Favorite](./favorite.gif)
   
 - **Login Functionality**: Secure login using specific credentials.
+
+ ![Sign In](./signin.gif)
+  
 - **Dark Mode**: Switch between light and dark themes.
 - **Form Validation**: Validate forms using Zod library.
 - **Mocked Backend**: Use axios-mock-adapter to mock API responses and store data in local storage.
