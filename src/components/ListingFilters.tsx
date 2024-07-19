@@ -21,7 +21,7 @@ const ListingFilters = ({ onChange }: ListingFiltersProps) => {
   };
 
   return (
-    <div className="flex flex-row items-center justify-center gap-2">
+    <div className="flex flex-col items-center justify-center gap-2 md:mt-12 md:flex-row md:items-center md:justify-between md:gap-4">
       <Input
         className="w-[400px]"
         placeholder="Search destinations"
