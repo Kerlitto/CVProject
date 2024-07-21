@@ -3,16 +3,16 @@ import personalPhoto from "../assets/personalPhoto/ja.png";
 const WelcomePage = () => {
   return (
     <>
-      <div className="container mx-auto">
-        <div className="mt-6 flex flex-col gap-8 md:mt-12 md:flex-row md:items-center md:justify-between md:gap-4">
-          <div className=" md:w-[50%] h-[800px] flex items-center justify-center">
+      <div className="flex items-center container mx-auto ">
+        <section className="flex flex-col h-[calc(100vh-73px)] overflow-auto gap-8 md:flex-row md:items-center md:justify-between md:gap-4">
+          <div className=" md:w-[50%] my-6">
             <img
               src={personalPhoto}
-              className="aspect-square object-cover object-left-top rounded-full h-[500px]"
+              className="rounded-full max-h-[500px] mx-auto"
             />
           </div>
-          <div className="text-xl  md:w-[50%]">
-            <p className="text-2xl font-semibold text-foreground mb-2">
+          <div className="flex flex-col justify-center text-xl mx-auto text-muted-foreground md:w-[50%] my-6 ">
+            <p className="text-2xl font-semibold text-foreground mb-6">
               Welcome to my portfolio!
             </p>
             <p className="mb-2">
@@ -56,7 +56,7 @@ const WelcomePage = () => {
               collaborations!
             </p>
           </div>
-        </div>
+        </section>
       </div>
     </>
   );
