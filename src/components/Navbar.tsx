@@ -7,7 +7,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/DropdownMenu";
-import { Separator } from "./ui/Separator";
+import { Separator } from "./ui/separator";
 import { ModeToggle } from "./DarkTheme/ModeToggle";
 
 const Navbar = () => {

@@ -4,7 +4,7 @@ import { type ListingDetails } from "@/api/data/listings";
 
 import ListingCardImages from "@/components/ListingCardImages";
 import ListingFavoriteButton from "@/components/ListingFavoriteButton";
-import { Card, CardContent } from "@/components/ui/Card";
+import { Card, CardContent } from "@/components/ui/card";
 
 const ListingCard = ({ listing }: { listing: ListingDetails }) => {
   return (
