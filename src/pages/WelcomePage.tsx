@@ -16,7 +16,7 @@ const WelcomePage = () => {
               Welcome to my portfolio!
             </p>
             <p className="mb-2">
-              My name is Maciej Kozak, and I am an Frontend Developer, experienced IT specialist and
+              My name is Maciej Kozak, and I am a Frontend Developer, experienced IT specialist and
               videographer.{" "}
             </p>
             <p className="mb-2">
@@ -28,7 +28,7 @@ const WelcomePage = () => {
               teleinformatics.{" "}
             </p>
             <p className="mb-2">
-              Currently, I serve as an Frontend Developer, managing and developing websites using modern technologies and practices.{" "}
+              Currently, I serve as a Frontend Developer, managing and developing websites using modern technologies and practices.{" "}
             </p>
             <p className="mb-2">
               Simultaneously, since 2017, I have been pursuing my passion for
