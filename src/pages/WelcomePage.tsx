@@ -16,7 +16,7 @@ const WelcomePage = () => {
               Welcome to my portfolio!
             </p>
             <p className="mb-2">
-              My name is Maciej Kozak, and I am an experienced IT specialist and
+              My name is Maciej Kozak, and I am an Frontend Developer, experienced IT specialist and
               videographer.{" "}
             </p>
             <p className="mb-2">
@@ -28,9 +28,7 @@ const WelcomePage = () => {
               teleinformatics.{" "}
             </p>
             <p className="mb-2">
-              Currently, I serve as an IT Administrator, managing IT
-              infrastructure, providing technical support, ensuring
-              cybersecurity, and developing and managing websites.{" "}
+              Currently, I serve as an Frontend Developer, managing and developing websites using modern technologies and practices.{" "}
             </p>
             <p className="mb-2">
               Simultaneously, since 2017, I have been pursuing my passion for
@@ -47,8 +45,8 @@ const WelcomePage = () => {
             </p>{" "}
             <p className="mb-2">
               In my daily work, I prioritize communication, teamwork, and
-              problem-solving. My technical skills include JavaScript, CSS,
-              React, Git, and Typescript. I am fluent in English, which enables
+              problem-solving. My technical skills include HTML, JavaScript, Typescript, CSS,
+              React, Next.js and Git. I am fluent in English, which enables
               effective international collaboration.{" "}
             </p>
             <p className="mb-2">
